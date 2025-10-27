@@ -33,7 +33,7 @@ ONTHE.HAUS is a Chrome extension that downloads full audio tracks from lalal.ai 
 ## Usage
 
 1. Go to lalal.ai
-2. Play any track preview
+2. Play any track preview/split
 3. Click the ONTHE.HAUS extension icon
 4. Download segments individually or click "Download Full Track"
 
@@ -63,3 +63,4 @@ This project is licensed under a custom Non-Commercial License. Free for persona
 <div align="center">
   <p>© 2025 cazh0</p>
 </div>
+
