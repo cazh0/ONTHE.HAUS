@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "ONTHE.HAUS",
+  "version": "1.0",
+  "description": "Captures and organizes MP3 segments with stitching capabilities",
+  "icons": {
+    "16": "images/icon.png",
+    "32": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "permissions": [
+    "storage",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://lalal.ai/*",
+    "https://*.lalal.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ONTHE.HAUS"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://lalal.ai/*", "https://*.lalal.ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://lalal.ai/*", "https://*.lalal.ai/*"]
+    }
+  ]
+}
