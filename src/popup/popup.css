@@ -1,3 +1,10 @@
+:root {
+  --c-purple: 166 108 255;
+  --c-cyan: 0 217 255;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t: 0.3s;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,8 +28,8 @@ body::before {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 30%, rgba(166, 108, 255, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(166, 108, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 20% 30%, rgb(var(--c-purple) / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgb(var(--c-purple) / 0.06) 0%, transparent 50%),
     url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(166,108,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
   pointer-events: none;
   z-index: 0;
@@ -40,7 +47,7 @@ body::before {
   height: auto;
   max-height: 50px;
   margin-bottom: 20px;
-  filter: drop-shadow(0 0 20px rgba(166, 108, 255, 0.4)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0 20px rgb(var(--c-purple) / 0.4)) drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
   display: block;
 }
 
@@ -53,25 +60,26 @@ body::before {
 .controls button {
   flex: 1;
   padding: 10px 18px;
-  background: rgba(166, 108, 255, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(166, 108, 255, 0.3);
+  background: rgb(var(--c-purple) / 0.12);
+  border: 1px solid rgb(var(--c-purple) / 0.3);
   border-radius: 12px;
   cursor: pointer;
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 500;
   color: #e0d0ff;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background var(--t) var(--ease),
+              border-color var(--t) var(--ease),
+              transform var(--t) var(--ease),
+              box-shadow var(--t) var(--ease);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .controls button:hover {
-  background: rgba(166, 108, 255, 0.2);
-  border-color: rgba(166, 108, 255, 0.5);
+  background: rgb(var(--c-purple) / 0.2);
+  border-color: rgb(var(--c-purple) / 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(166, 108, 255, 0.25);
+  box-shadow: 0 6px 20px rgb(var(--c-purple) / 0.25);
 }
 
 .controls button:active {
@@ -82,19 +90,23 @@ body::before {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(166, 108, 255, 0.2);
+  border: 1px solid rgb(var(--c-purple) / 0.2);
   border-radius: 16px;
   margin-bottom: 16px;
   padding: 18px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  contain: layout style;
+  transition: background var(--t) var(--ease),
+              border-color var(--t) var(--ease),
+              transform var(--t) var(--ease),
+              box-shadow var(--t) var(--ease);
 }
 
 .playlist:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(166, 108, 255, 0.35);
+  border-color: rgb(var(--c-purple) / 0.35);
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(166, 108, 255, 0.15);
+  box-shadow: 0 12px 40px rgb(var(--c-purple) / 0.15);
 }
 
 .playlist-header {
@@ -103,7 +115,7 @@ body::before {
   align-items: center;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(166, 108, 255, 0.15);
+  border-bottom: 1px solid rgb(var(--c-purple) / 0.15);
   cursor: pointer;
   user-select: none;
 }
@@ -122,8 +134,8 @@ body::before {
 
 .playlist-arrow {
   font-size: 14px;
-  color: #A66CFF;
-  transition: transform 0.3s ease;
+  color: rgb(var(--c-purple));
+  transition: transform var(--t) ease;
   display: inline-block;
 }
 
@@ -142,37 +154,37 @@ body::before {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: inherit;
   font-size: 12px;
   font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   color: #fff;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  transition: background var(--t) var(--ease),
+              transform var(--t) var(--ease),
+              box-shadow var(--t) var(--ease);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .download-all-btn {
-  background: rgba(166, 108, 255, 0.65);
-  border: 1px solid rgba(166, 108, 255, 0.4);
+  background: rgb(var(--c-purple) / 0.65);
+  border: 1px solid rgb(var(--c-purple) / 0.4);
 }
 
 .download-all-btn:hover {
-  background: rgba(166, 108, 255, 0.85);
+  background: rgb(var(--c-purple) / 0.85);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(166, 108, 255, 0.4);
+  box-shadow: 0 6px 16px rgb(var(--c-purple) / 0.4);
 }
 
 .stitch-btn {
-  background: rgba(0, 217, 255, 0.65);
-  border: 1px solid rgba(0, 217, 255, 0.4);
+  background: rgb(var(--c-cyan) / 0.65);
+  border: 1px solid rgb(var(--c-cyan) / 0.4);
   margin-right: 8px;
 }
 
 .stitch-btn:hover:not(:disabled) {
-  background: rgba(0, 217, 255, 0.85);
+  background: rgb(var(--c-cyan) / 0.85);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 217, 255, 0.4);
+  box-shadow: 0 6px 16px rgb(var(--c-cyan) / 0.4);
 }
 
 .stitch-btn:disabled {
@@ -198,16 +210,16 @@ body::before {
   align-items: center;
   padding: 12px;
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(166, 108, 255, 0.15);
+  border: 1px solid rgb(var(--c-purple) / 0.15);
   border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background var(--t) var(--ease),
+              border-color var(--t) var(--ease),
+              transform var(--t) var(--ease);
 }
 
 .segment:hover {
-  background: rgba(166, 108, 255, 0.08);
-  border-color: rgba(166, 108, 255, 0.3);
+  background: rgb(var(--c-purple) / 0.08);
+  border-color: rgb(var(--c-purple) / 0.3);
   transform: translateX(4px);
 }
 
@@ -226,39 +238,39 @@ body::before {
 .segment-controls button {
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(166, 108, 255, 0.25);
+  border: 1px solid rgb(var(--c-purple) / 0.25);
   border-radius: 10px;
   cursor: pointer;
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: inherit;
   font-size: 16px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  transition: background var(--t) var(--ease),
+              transform var(--t) var(--ease),
+              box-shadow var(--t) var(--ease);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .play-btn {
-  background: rgba(166, 108, 255, 0.5);
+  background: rgb(var(--c-purple) / 0.5);
 }
 
 .play-btn:hover {
-  background: rgba(166, 108, 255, 0.75);
+  background: rgb(var(--c-purple) / 0.75);
   transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(166, 108, 255, 0.5);
+  box-shadow: 0 6px 16px rgb(var(--c-purple) / 0.5);
 }
 
 .download-btn {
-  background: rgba(166, 108, 255, 0.15);
+  background: rgb(var(--c-purple) / 0.15);
 }
 
 .download-btn:hover {
-  background: rgba(166, 108, 255, 0.3);
+  background: rgb(var(--c-purple) / 0.3);
   transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(166, 108, 255, 0.5);
+  box-shadow: 0 6px 16px rgb(var(--c-purple) / 0.5);
 }
 
 .segment-controls button:active {
@@ -271,7 +283,7 @@ body::before {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(166, 108, 255, 0.15);
+  border: 1px solid rgb(var(--c-purple) / 0.15);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
@@ -279,16 +291,22 @@ body::before {
 .empty-state p {
   margin-bottom: 12px;
   font-size: 14px;
-  color: rgba(208, 197, 224, 0.7);
+  color: rgb(var(--c-purple) / 0.7);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .empty-state p:first-child {
   font-size: 18px;
   font-weight: 600;
-  color: #A66CFF;
+  color: rgb(var(--c-purple));
   margin-bottom: 16px;
-  text-shadow: 0 0 15px rgba(166, 108, 255, 0.3);
+  text-shadow: 0 0 15px rgb(var(--c-purple) / 0.3);
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
 }
 
 ::-webkit-scrollbar {
@@ -296,14 +314,14 @@ body::before {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(166, 108, 255, 0.05);
+  background: rgb(var(--c-purple) / 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(166, 108, 255, 0.3);
+  background: rgb(var(--c-purple) / 0.3);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(166, 108, 255, 0.5);
+  background: rgb(var(--c-purple) / 0.5);
 }

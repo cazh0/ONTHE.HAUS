@@ -1,6 +1,6 @@
 # ONTHE.HAUS License
 
-Copyright (c) 2025 ONTHE.HAUS
+Copyright (c) 2026 ONTHE.HAUS
 
 ## Terms of Use
 

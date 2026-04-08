@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>ONTHE.HAUS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <div class="container">
-    <img src="images/logo.png" alt="ONTHE.HAUS" class="logo">
+    <img src="../../images/logo.png" alt="ONTHE.HAUS" class="logo">
     
     <div class="controls">
       <button id="clearBtn">Clear All</button>
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <audio id="audioPlayer" style="display: none;"></audio>
+  <audio id="audioPlayer" preload="none" style="display: none;"></audio>
   <script src="popup.js"></script>
 </body>
 </html>

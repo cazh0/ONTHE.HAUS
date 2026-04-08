@@ -18,22 +18,22 @@
     "https://*.lalal.ai/*"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background/background.js"
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "src/popup/popup.html",
     "default_title": "ONTHE.HAUS"
   },
   "content_scripts": [
     {
       "matches": ["https://lalal.ai/*", "https://*.lalal.ai/*"],
-      "js": ["content.js"],
+      "js": ["src/content/content.js"],
       "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["injected.js"],
+      "resources": ["src/content/injected.js"],
       "matches": ["https://lalal.ai/*", "https://*.lalal.ai/*"]
     }
   ]
